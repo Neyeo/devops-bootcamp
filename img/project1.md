@@ -24,7 +24,7 @@ This project documents the process of hosting a website using AWS EC2, Ubuntu, N
 - Configure instance details, such as network and storage settings, if needed.
 - Review and launch the instance. During launch, create or select an existing key pair for SSH access.
 
-![screenshot of my aws console and instance](onepic.jpg)
+![screenshot of my aws console and instance](/img/onepic.jpg)
 
 #### **Step 2: Allocate and Associate an Elastic IP**
 - In the EC2 Dashboard, go to **Network & Security > Elastic IPs**.
