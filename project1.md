@@ -24,13 +24,13 @@ This project documents the process of hosting a website using AWS EC2, Ubuntu, N
 - Configure instance details, such as network and storage settings, if needed.
 - Review and launch the instance. During launch, create or select an existing key pair for SSH access.
 
-![screenshot of my aws console and instance](./onepic.jpg)
+![screenshot of my aws console and instance](/img/onepic.jpg)
 
 #### **Step 2: Allocate and Associate an Elastic IP**
 - In the EC2 Dashboard, go to **Network & Security > Elastic IPs**.
 - Allocate a new Elastic IP and associate it with your instance.
 
-![screenshot of allocating and associating an elastic ip and instance](./3rdpic.png)
+![screenshot of allocating and associating an elastic ip and instance](/img/3rdpic.png)
 
 
 ### **2. SSH into Your EC2 Instance**
@@ -43,7 +43,7 @@ This project documents the process of hosting a website using AWS EC2, Ubuntu, N
   ```bash
   ssh -i "Pedri.pem" ubuntu@16.171.86.176
 
-  ![screenshot on my connected instance](./4thpic.jpg)
+  ![screenshot on my connected instance](/img/4thpic.jpg)
 
 
 ###  **Install and Configure Nginx**
@@ -60,7 +60,7 @@ This project documents the process of hosting a website using AWS EC2, Ubuntu, N
 - **sudo systemctl start nginx**
 - **sudo systemctl enable nginx**
 
-![screenshot of installed nginx](./secondpic.png)
+![screenshot of installed nginx](/img/secondpic.png)
 
 ### **4. Download and Deploy Your Website**
 
@@ -72,7 +72,7 @@ This project documents the process of hosting a website using AWS EC2, Ubuntu, N
 - sudo apt install unzip
 **sudo unzip /var/www/html/ https://www.tooplate.com/zip-templates/2131_wedding_lite.zip**
 
-![screenshot of template used](./6thpic.jpg)
+![screenshot of template used](/img/6thpic.jpg)
 
 ### **4. Configure Nginx to Serve Your Website and edit the root**
 
@@ -81,7 +81,7 @@ This project documents the process of hosting a website using AWS EC2, Ubuntu, N
 - using the command: **root /var/www/html/2131_wedding_lite;**
 - Restart Nginx using the command:**sudo systemctl restart nginx** To apply changes.
 
-![screenshot of root edited](./5th.jpg)
+![screenshot of root edited](/img/5th.jpg)
 
 ### **5. Set Up SSL with Certbot**
 
@@ -95,14 +95,14 @@ This project documents the process of hosting a website using AWS EC2, Ubuntu, N
 - Update the DNS settings to point to your Elastic IP address.
 - If using Qservers, ensure the nameservers are set to ns1.qservers.net and ns2.qservers.net.
 
-![screenshot of Q servers dns configuration](./10th.jpg)
+![screenshot of Q servers dns configuration](/img/10th.jpg)
 
-![screenshot of Q servers dns configuration](./11th.jpg)
+![screenshot of Q servers dns configuration](/img/11th.jpg)
 
 #### **step2: Configure DNS Records in Route 53.**
 -If using AWS Route 53 for DNS management, create an A record that points your domain to your EC2 instance’s Elastic IP.
 
-![screenshot of my A record on aws console](./7th.jpg)
+![screenshot of my A record on aws console](/img/7th.jpg)
 
 ### **7. Testing and Verification**
 
@@ -111,16 +111,16 @@ This project documents the process of hosting a website using AWS EC2, Ubuntu, N
 #### **step 2: Verify SSL Certificate**
 - Test the SSL certificate by using the command: **openssl s_client -connect niyidomain.com.ng:443**
 
-![screenshot of the website](./8th.jpg)
+![screenshot of the website](/img/8th.jpg)
 
 ### **8. Aditional verification**
 
 #### **step 1:  Setting Up a Custom Domain**
 - To make the website accessible via a custom domain (www.niyidomain.com.ng), by updating the server block in your Nginx configuration.
 
-![screenshot of the server block updated](./12th.jpg)
+![screenshot of the server block updated](/img/12th.jpg)
 
 ### **step 2: reload Nginx**
 - Reload Nginx to apply the changes using the command: **sudo systemctl reload nginx**
 
-![screenshot of the website with custom domain](./13th.jpg)
+![screenshot of the website with custom domain](/img/13th.jpg)
