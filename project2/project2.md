@@ -53,7 +53,7 @@ In this project, I set up two static websites on a single Ubuntu server using Ng
      ```
    - Visit your Elastic IP in a browser to see the Nginx welcome page.
 
- ![Nginx welcome page](img/5thpic.jpg)
+ ![screenshot of the Nginx welcome page](img/6thpic.jpg)
 
 ## Task 3: Create Two Website Directories and Download Templates
 
