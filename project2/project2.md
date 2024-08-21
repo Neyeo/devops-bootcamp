@@ -31,7 +31,7 @@ In this project, I set up two static websites on a single Ubuntu server using Ng
      ```bash
      ssh -i gavi.pem ubuntu@51.20.177.135
      
-     ![screenshot of my ssh into the server](img/5thpic.jpg)
+![screenshot of my ssh into the server](img/5thpic.jpg)
 
 2. **Install Nginx:**
    - Update the package lists and install Nginx:
@@ -53,7 +53,7 @@ In this project, I set up two static websites on a single Ubuntu server using Ng
      ```
    - Visit your Elastic IP in a browser to see the Nginx welcome page.
 
-   ![Nginx welcome page](img/5thpic.jpg)
+ ![Nginx welcome page](img/5thpic.jpg)
 
 ## Task 3: Create Two Website Directories and Download Templates
 
@@ -63,14 +63,14 @@ In this project, I set up two static websites on a single Ubuntu server using Ng
      sudo curl -o /var/www/html/2098_health.zip https://www.tooplate.com/zip-templates/2107_new_spot.zip && sudo unzip -d /var/www/html/ /var/www/html/2107_new_spot.zip && sudo rm -f /var/www/html/2107_new_spot.zip
 
     
-     ![screenshot of the frist website download](img/7thpic.jpg)
+![screenshot of the frist website download](img/7thpic.jpg)
 
 2. **Download and Unzip the Second Website Template:**
    - Download and unzip the second template:
      ```bash
      sudo curl -o /var/www/html/2132_clean_work.zip https://www.tooplate.com/zip-templates/2110_character.zip && sudo unzip -d /var/www/html/ /var/www/html/2110_character.zip && sudo rm -f /var/www/html/2110_character.zip
 
-     ![screenshot of the frist website download](img/8thpic.jpg)
+ ![screenshot of the frist website download](img/8thpic.jpg)
 
      
 
