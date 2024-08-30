@@ -179,7 +179,7 @@ This project involves setting up load balancing for two static websites using Ng
     - In AWS Route 53, create an A record for your root domain pointing to the public IP address of the load balancer.
     - Create another A record for the `www` subdomain pointing to the same IP.
 
-    ![AWS console](./img/Arecordscreated.jpg)
+    ![AWS console](./img/correctArecord.jpg)
 
 2. **Update Nginx Server Blocks**:
     - On the first web server, update the Nginx configuration:
@@ -222,7 +222,7 @@ This project involves setting up load balancing for two static websites using Ng
 3. **Verify HTTPS**:
     - Access your domain in a web browser using `https://` to confirm that SSL/TLS is working.
 
-   ![SSL/TLS certificate](./img/https.jpg)
+   ![SSL/TLS certificate](./img/finalweb.jpg)
 
 4. **Set Up Automatic Renewal**:
     - Test renewal with:
