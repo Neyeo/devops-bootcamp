@@ -4,13 +4,13 @@
 
 ## Documentation
 
-Start by deploying an Ubuntu Server. Following the instructions from Project 1 to spin up an Ubuntu server on AWS.
+Start by deploying an Ubuntu Server.
 
 ![Ubuntu server](./img/p4ssh.jpg)
 
 - Open your **terminal** and connect to your Ubuntu server via SSH.
 
-![server running](./project4/img/p4ssh.jpg)
+![server running](./img/p4ssh.jpg)
 
 ### Install Apache
 
@@ -25,18 +25,18 @@ Start by deploying an Ubuntu Server. Following the instructions from Project 1 t
 
 - To enable Apache to start on boot, execute **`sudo systemctl enable apache2`①**, and then verify its status with the **`sudo systemctl status apache2`②** command.
 
-![INstalling apache](./project4/img/p4installapache.jpg)
+![INstalling apache](./img/p4installapache.jpg)
 
 -  Checking if the server is running and accessible both locally and from the Internet by executing the following command: **`curl http://localhost:80`**.
 
-![Local host](./project4/img/localhostp4.jpg)
+![Local host](./img/localhostp4.jpg)
 
 
 *Now, it's time to test how our Apache HTTP server responds to requests from the Internet.*
 
 **Opening up a web browser then accessing the following URL: **`http://<13.51.172.226>:80`**
 
-![public address](./project4/img/testingtheeipproject4.jpg)
+![public address](./img/testingtheeipproject4.jpg)
 
 ---
 
@@ -44,36 +44,36 @@ Start by deploying an Ubuntu Server. Following the instructions from Project 1 t
 
 - To install this software using 'apt', run the command **`sudo apt install mysql-server`**. When prompted, confirm the installation by typing 'Y' and then pressing ENTER.
 
-![Installing Mysql](./project4/img/installingmysqlproject4.jpg)
+![Installing Mysql](./img/installingmysqlproject4.jpg)
 
 - After the installation is complete, log in to the MySQL console by typing: **`sudo mysql`**.
 
 - Run the following command to set the password for the root user with the MySQL native password authentication method: **`ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass';`**. Exit the MySQL shell when you're done by typing **`exit`**.
 
-![Password](./project4/img/mysqlserver.jpg)
+![Password](./img/mysqlserver.jpg)
 
 - Start the interactive script by running: **`sudo mysql_secure_installation`①**. Answer **y**② for yes, or any other key to continue without enabling specific options.
 
-![interactive script](./project4/img/projectsqlseetings.jpg)
+![interactive script](./img/projectsqlseetings.jpg)
 
 ## Enable MySQL to start on boot by executing **`sudo systemctl enable mysql`①**, and then confirm its status with the **`sudo systemctl status mysql`②** command.
 
-![sudo status](./project4/img/project4sqlstatus.jpg)
+![sudo status](./img/project4sqlstatus.jpg)
 ---
 
 ### Install PHP
 
 - Install PHP along with required extensions by running the following script: **`sudo apt install php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip`**.
 
-![Installing php](./project4/img/installphp.jpg)
+![Installing php](./img/installphp.jpg)
 
 **`sudo apt install php libapache2-mod-php php-mysql`**
 
-![php](./project4/img/contdphp.jpg)
+![php](./img/contdphp.jpg)
 
 - Checking the PHP version by running **`php -v`**.
 
-![php version](./project4/img/versionphp.jpg)
+![php version](./img/versionphp.jpg)
 
 ### Creating A Virtual Host For Your Website Using Apache
 
@@ -81,7 +81,7 @@ Start by deploying an Ubuntu Server. Following the instructions from Project 1 t
 **`sudo mkdir /var/www/projectlamp`①** and assign ownership of the directory to our current system user using:
 **`sudo chown -R $USER:$USER /var/www/projectlamp`②**.
 
-![1creating directory](./project4/img/virtualproject4.jpg)
+![1creating directory](./img/virtualproject4.jpg)
 
 - Create and open a new configuration file in Apache's sites-available directory using your preferred command-line editor:
 **`sudo vi /etc/apache2/sites-available/projectlamp.conf`**.
@@ -106,18 +106,18 @@ CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 ```
 
-![virtual config](./project4/img/vrtualconfg.jpg)
+![virtual config](./img/vrtualconfg.jpg)
 
 - Save your changes by pressing the **`Esc`** key, then type **`:wq`** and press **`Enter`**.
 - Run the ls command **`sudo ls /etc/apache2/sites-available`①** to show the **new file②** in the sites-available directory.
 
-![sites-available](./project4/img/sitesavalableproject4.jpg)
+![sites-available](./img/sitesavalableproject4.jpg)
 
 - We can now enable the new virtual host using the a2ensite command: **`sudo a2ensite projectlamp`**.
 - To disable Apache's default website, use the a2dissite command. Type: **`sudo a2dissite 000-default`**.
 - To ensure your configuration file doesn’t contain syntax errors, run: **`sudo apache2ctl configtest`**. You should see **"Syntax OK"** in the output if your configuration is correct.
 
-![syntax ok](./project4/img/syntaxok.jpg)
+![syntax ok](./img/syntaxok.jpg)
 
 - Finally run: **`sudo systemctl reload apache2`**. This will reload Apache for the changes to take effect.
 
@@ -127,14 +127,11 @@ Our new website is now active, but the web root **`/var/www/projectlamp`** is st
 - To create the **index.html** file with the content **"Hello LAMP from Jay"** in the /var/www/projectlamp directory, use the following command: **`sudo echo 'Hello LAMP from Jay' > /var/www/projectlamp/index.html`**.
 
 - Remove the index.html file by running the following command: **`sudo rm /var/www/projectlamp/index.html `**
-
-![index](./project4/img/updateddocuroot.jpg)
-
 - Now, let's open our web browser and try to access our website using the IP address:
 
 **`http://<13.51.172.226>:80`**
 
-![hello from jay](./project4/img/hellofrmjay.jpg)
+![hello from jay](./img/hellofrmjay.jpg)
 
 
 ### Enable PHP On The Website
@@ -147,7 +144,7 @@ With the default DirectoryIndex settings on Apache, a file named index.html will
 
 - Press **`ctrl` + `x`①** on your keyboard to save and exit.
 
-![dir.conf](./project4/img/priotizeproject4.jpg)
+![dir.conf](./img/priotizeproject4.jpg)
 
 - Press **`ctrl` + `x`①** on your keyboard to save and exit.
 
@@ -157,7 +154,7 @@ With the default DirectoryIndex settings on Apache, a file named index.html will
 
 - Finally, reload Apache for the changes to take effect: **`sudo systemctl reload apache2`**.
 
-![systemctl reload](./project4/img/Scope.jpg)
+![systemctl reload](./img/Scope.jpg)
 
 Now, Apache will prioritize index.php over index.html when both files exist in the same directory.
 
@@ -171,11 +168,11 @@ Now, Apache will prioritize index.php over index.html when both files exist in t
 
 phpinfo();
 ```
-![php config](./project4/img/Smallphpconfg.jpg)
+![php config](./img/Smallphpconfg.jpg)
 
 - Once you've saved and closed the file, go back to your web browser and refresh the page. You should see something like this:
 
-![refresh](./project4/img/refreshipaddress.jpg)
+![refresh](./img/refreshipaddress.jpg)
 
 > [!NOTE]
 - It's recommended to remove the file you created, as it contains sensitive information about your PHP environment and your Ubuntu server. You can use the rm command to do so:
@@ -187,36 +184,36 @@ phpinfo();
 
 - Navigate to the directory using the cd command **`cd /var/www/html`**, and then download the WordPress installation files using the following command: **`sudo wget -c http://wordpress.org/latest.tar.gz`**
 
-![Installing wordpress](./project4/img/installingwp.jpg)
+![Installing wordpress](./img/installingwp.jpg)
 
 - Extract the files from the downloaded WordPress archive using the command: **`sudo tar -xzvf latest.tar.gz`**
 
-![Extarcting wordpress](./project4/img/extractingwp.jpg)
+![Extarcting wordpress](./img/extractingwp.jpg)
 
 - Check the user running your web server with the command: **`ps aux | grep apache | grep -v grep`**.
 
-![checking for user](./project4/img/confifakewordpress.jpg)
+![checking for user](./img/confifakewordpress.jpg)
 
 *This command filters processes related to Apache (apache2 on Ubuntu) and displays information about the user running those processes.*
 
 - Grant ownership of the WordPress directory and its files to the web server user by running the command: **`sudo chown -R www-data:www-data /var/www/html/wordpress`**.
 
-![grant ownership](./project4/img/confifakewordpress.jpg)
+![grant ownership](./img/confifakewordpress.jpg)
 
 ### Create a Database For Wordpress
 
 - Access your MySQL root account with the following command: **`sudo mysql -u root -p`①**. Enter the **password②** you set earlier when prompted.
 
-![login to Mysql](./project4/img/createDB.jpg)
+![login to Mysql](./img/createDB.jpg)
 
 - To create a separate database named wp_db for WordPress to manage, execute the following command in the MySQL prompt: **`CREATE DATABASE wp_db;`**
 
-![separate dB](./project4/img/omoscope.jpg)
+![separate dB](./img/omoscope.jpg)
 
 - To access the new database, you can create a MySQL user account with a strong password using the following command:
 **`CREATE USER jay@localhost IDENTIFIED BY 'wp-password';`**
 
-![Create password](./project4/img/creatingnewpassword.jpg)
+![Create password](./img/creatingnewpassword.jpg)
 
 - To grant your created user (jay@localhost) all privileges needed to work with the wp_db database in MySQL, use the following commands:
 
@@ -225,7 +222,7 @@ GRANT ALL PRIVILEGES ON wp_db.* TO jay@localhost;
 FLUSH PRIVILEGES;
 ```
 
-![PRIVILEGES](./project4/img/new.jpg)
+![PRIVILEGES](./img/new.jpg)
 
 - Type **`exit`** to exit the MySQL shell.
 
@@ -246,29 +243,29 @@ Once you've established a database for WordPress, the next crucial step is setti
 - Modify the configuration file projectlamp.conf: **`sudo nano /etc/apache2/sites-available/projectlamp.conf`** to update the document root to the directory where your WordPress installation is located.
 
 
-![UPDATED DATABASE SETTING](./project4/img/wordpressconfg.jpg)
+![UPDATED DATABASE SETTING](./img/wordpressconfg.jpg)
 
 - After updating the document root to **`/var/www/html`** directory in your editor, save the changes and exit.
 
-![UPDATED ROOT](./project4/img/updateddocuroot.jpg)
+![UPDATED ROOT](./img/updateddocuroot.jpg)
 
 - Reload Apache for the changes to take effect: **`sudo systemctl reload apache2`**.
 
 - Access the WordPress page to complete the installation. Using  **`http://<13.51.172.226>/wordpress/`**.
 
 
-![wordpress page](./project4/img/wordpressweb.jpg)
+![wordpress page](./img/wordpressweb.jpg)
 
 - Enter the required information and click on **Install WordPress** once you have finished.
 
 
-![webpress information](./project4/img/wordpressinformation.jpg)
+![webpress information](./img/wordpressinformation.jpg)
 
 - WordPress has been successfully installed. You can now log in to your admin dashboard using the previously set up information by clicking the **Log In** button.
 
 - Once you successfully log in, you will be greeted by the WordPress dashboard page.
 
-![welcome page](./project4/img/welcome2wp.jpg)
+![welcome page](./img/welcome2wp.jpg)
 
 ---
 
@@ -282,13 +279,13 @@ To make the website accessible via my domain name rather than the IP address, I 
 
 - Paste your **IP address➀** and then click on **Create records➁** to create the root domain.
 
-![First A-RECORD](./project4/img/project4createA.jpg)
+![First A-RECORD](./img/project4createA.jpg)
 
 - Click on **Create record** again, to create the record for your sub domain.
 
 - Paste the same IP address➀, input the Record name(**www➁**) and then click on **Create records**➂.
 
-![sub domain](./project4/img/2Arecordsproject4.jpg)
+![sub domain](./img/2Arecordsproject4.jpg)
 
 - Update your Apache configuration file in the sites-available directory to point to your domain name, use the command: **`sudo nano /etc/apache2/sites-available/projectlamp.conf`**.
 
@@ -311,7 +308,7 @@ To make the website accessible via my domain name rather than the IP address, I 
 </VirtualHost>
 ```
 
-![updating real domain](./project4/img/Realdomain.jpg)
+![updating real domain](./img/Realdomain.jpg)
 
 - To update your **`wp-config.php`** file with DNS settings, use the following command: **`sudo nano wp-config.php`** and add these lines to the file:
 ```
@@ -322,20 +319,20 @@ define('WP_HOME', 'http://<niyidomain.com.ng>');
 define('WP_SITEURL', 'http://<niyidomain.com.ng>');
 ```
 
-![59](img/59.png)
+
 
 - Reload your Apache server to apply the changes with the command: **`sudo systemctl reload apache2`**, After reloading, visit your website at **`http://<niyi.com.ng>`** to view your WordPress site.
 
-![Using domain](./project4/img/domainloading.jpg)
+![Using domain](./img/domainloading.jpg)
 
-- To log in to your WordPress admin portal, visit **`http://<domain name>/wp-admin`**, Enter your **username①** and **password②**, then click on **log In③**. *Replace **<domain name>** with your actual domain name.*
+- To log in to your WordPress admin portal, visit **`http://<niyidomain.com.ng>/wp-admin`**, Enter your **username①** and **password②**, then click on **log In③**.
 
 > [!NOTE]
 My domain name is **niyidomain.com.ng**, so i'll visit **`http://niyidomain.com.ng/wp-admin`**.
 
 - Now that your WordPress site is successfully configured to use your domain name, the next step is to secure it by requesting an SSL/TLS certificate.
 
-![welcome page](./project4/img/welcome2wp.jpg)
+![welcome page](./img/welcome2wp.jpg)
 
 ---
 
@@ -349,12 +346,12 @@ My domain name is **niyidomain.com.ng**, so i'll visit **`http://niyidomain.com.
 
 - You should receive a message confirming that the certificate has been successfully obtained.
 
-![Certificate](./project4/img/certss.jpg)
+![Certificate](./img/certss.jpg)
 
 - Visit your website to confirm, and you'll notice that the **"not secure"** warning no longer appears, indicating that your site is now secure with HTTPS.
 
 ---
 ---
-![secured](./project4/img/originalsecuredproject4.jpg)
+![secured](./img/originalsecuredproject4.jpg)
 
 #### The End Of Project 4
